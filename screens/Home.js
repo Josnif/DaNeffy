@@ -1,0 +1,59 @@
+import { useState } from 'react';
+import { SafeAreaView, FlatList, Text, View } from 'react-native';
+import { useWalletConnect } from '@walletconnect/react-native-dapp';
+
+import { COLORS, NFTData } from '../constants';
+import { FocusedStatusBar, HomeHeader, NFTCard} from '../components'
+
+const Home = () => {
+  const connector = useWalletConnect();
+
+  const [nftData, setNftData] = useState(NFTData)
+  const handleSearch = (value) => {
+    if (value.length === 0) return setNftData(NFTData);
+    
+    const filteredData = NFTData.filter(item => 
+      item.name.toLowerCase().includes(value.toLowerCase())
+    )
+
+    if (filteredData.length) {
+      setNftData(filteredData);
+    } else {
+      setNftData(NFTData);
+    }
+  }
+
+  console.log(connector._accounts[0]);
+  
+  return (
+    <SafeAreaView style={{flex: 1}}>
+      <FocusedStatusBar backgroundColor={COLORS.primary} />
+
+      <View style={{flex: 1}}>
+        <View style={{zIndex: 0}}>
+          <FlatList 
+            data={nftData}
+            renderItem={({item}) => <NFTCard data={item}></NFTCard>}
+            keyExtractor={item => item.id}
+            showsVerticalScrollIndicator={false}
+            ListHeaderComponent={<HomeHeader onSearch={handleSearch} />}
+          />
+        </View>
+      </View>
+
+      <View style={{
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        zIndex: -1,
+      }}>
+        <View style={{height: 300, backgroundColor: COLORS.primary }} />
+        <View style={{flex: 1, backgroundColor: COLORS.white }} />
+      </View>
+    </SafeAreaView>
+  );
+}
+
+export default Home;
