@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import { SafeAreaView, FlatList, Text, View } from 'react-native';
-import { useWalletConnect } from '@walletconnect/react-native-dapp';
 
 import { COLORS, NFTData } from '../constants';
 import { FocusedStatusBar, HomeHeader, NFTCard} from '../components'
 
 const Home = () => {
-  const connector = useWalletConnect();
 
   const [nftData, setNftData] = useState(NFTData)
   const handleSearch = (value) => {
@@ -23,7 +21,6 @@ const Home = () => {
     }
   }
 
-  console.log(connector._accounts[0]);
   
   return (
     <SafeAreaView style={{flex: 1}}>

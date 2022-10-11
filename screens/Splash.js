@@ -61,6 +61,7 @@ const Splash = () => {
   const isCarousel = useRef(null);
   const connector = useWalletConnect();
 
+
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
       <FocusedStatusBar backgroundColor={COLORS.primary} />

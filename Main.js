@@ -1,9 +1,11 @@
 // import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font'
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { useWalletConnect, withWalletConnect } from '@walletconnect/react-native-dapp';
+// import UserWrapper from './context/UserWrapper'
+import { UserProvider } from './context/UserWrapper'
 
 import Splash from './screens/Splash'
 import CryptoAuth from './screens/CryptoAuth'
@@ -24,6 +26,7 @@ const theme = {
 
 const Main = () => {
   const connector = useWalletConnect();
+
   const [defaultRoute, setDefaultRoute] = useState("Splash");
   const [loaded] = useFonts({
     InterBold: require("./assets/fonts/Inter-Bold.ttf"),
@@ -35,31 +38,26 @@ const Main = () => {
   });
 
   if (!loaded) return null;
-  // const getDefaultRoute = () => {
-  //   if (connector.connected) {
-  //     setDefaultRoute('Home')
-  //   } else {
-  //     setDefaultRoute('Splash')
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   getDefaultRoute();
-  // }, [])
-  
-
+  // const { currentAccount } = useContext(UserWrapper);
+  // console.log(currentAccount === false ? "Splash" : "App");
   return (
     <NavigationContainer theme={theme}>
-      <Stack.Navigator 
-        screenOptions={{headerShown: false}} 
-        initialRouteName={!connector.connected ? "Splash" : "Home"}
-      >
-        <Stack.Screen name="Splash" component={Splash}></Stack.Screen>
-        <Stack.Screen name="CryptoAuth" component={CryptoAuth}></Stack.Screen>
-
-        <Stack.Screen name="App" component={App}></Stack.Screen>
-        <Stack.Screen name="Details" component={Details}></Stack.Screen>
-      </Stack.Navigator>
+      <UserProvider>
+        <Stack.Navigator 
+          screenOptions={{headerShown: false}} 
+          initialRouteName={connector.connected === false ? "Splash" : "App"}
+        >
+          {connector.connected ? (
+            <>
+              <Stack.Screen name="App" component={App}></Stack.Screen>
+              <Stack.Screen name="CryptoAuth" component={CryptoAuth}></Stack.Screen>
+              <Stack.Screen name="Details" component={Details}></Stack.Screen>
+            </>
+          ) : (
+            <Stack.Screen name="Splash" component={Splash}></Stack.Screen>
+          )}
+        </Stack.Navigator>
+      </UserProvider>
     </NavigationContainer>
   );
 }
