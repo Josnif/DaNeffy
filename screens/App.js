@@ -28,7 +28,7 @@ const MyTabs = () => {
         tabBarIconStyle: {marginTop: 6},
       }}
     >
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Notifications"
         component={Notifications}
         options={{
@@ -37,7 +37,7 @@ const MyTabs = () => {
             <MaterialCommunityIcons name="bell" color={color} size={size} />
           ),
         }}
-      />
+      /> */}
       <Tab.Screen
         name="Home"
         component={Home}

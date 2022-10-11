@@ -40,6 +40,7 @@ const Main = () => {
   if (!loaded) return null;
   // const { currentAccount } = useContext(UserWrapper);
   // console.log(currentAccount === false ? "Splash" : "App");
+  // console.log(connector.connected);
   return (
     <NavigationContainer theme={theme}>
       <UserProvider>

@@ -193,7 +193,7 @@ const NFTData = [
 
 const UserData = {
   id: "128875",
-  name: "Jennifer Sia",
+  name: "Josnif Pat",
   image: assets.person03,
   banner: assets.nft01,
   date: "December 27, 2019 at 1:50 PM",

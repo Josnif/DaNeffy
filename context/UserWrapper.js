@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useWalletConnect } from '@walletconnect/react-native-dapp';
 // import { useNavigation } from '@react-navigation/native';
+import { UserData } from '../constants'
 
 const UserWrapper = React.createContext();
 
@@ -9,6 +10,7 @@ export const UserProvider = ({children}) => {
 
     const connector = useWalletConnect();
     const [currentAccount, setCurrentAccount] = useState(false);
+    const [user, setUser] = useState(UserData)
 
     const checkIfConnected = () => {
         if (connector.connected) {
@@ -28,7 +30,7 @@ export const UserProvider = ({children}) => {
     
 
     return (
-        <UserWrapper.Provider value={{currentAccount, setCurrentAccount}}>
+        <UserWrapper.Provider value={{currentAccount, setCurrentAccount, checkIfConnected, user}}>
             {children}
         </UserWrapper.Provider>
     );
