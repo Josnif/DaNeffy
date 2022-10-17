@@ -1,11 +1,23 @@
-import { View, Text } from 'react-native'
+import { View, Text, SafeAreaView } from 'react-native'
 import React from 'react'
+
+import { FocusedStatusBar, ProfileTabHeader } from '../../components'
+import { COLORS } from '../../constants';
+
 
 const Account = () => {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Account</Text>
-    </View>
+    <SafeAreaView>
+      <FocusedStatusBar 
+        barStyle="dark-content"
+        backgroundColor={COLORS.primary} 
+        translucent={false}
+      />
+      <ProfileTabHeader></ProfileTabHeader>
+      <View>
+        <Text>Account</Text>
+      </View>
+    </SafeAreaView>
   )
 }
 

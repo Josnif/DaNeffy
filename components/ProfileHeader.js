@@ -29,7 +29,8 @@ const ProfileHeader = ({ user, address }) => {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'flex-end',
-                marginBottom: 30
+                marginBottom: 30,
+                // backgroundColor: COLORS.secondary
             }}>
                 <View style={{ width: 65, height: 65, marginBottom: 10 }}>
                     <Image 
