@@ -21,8 +21,14 @@ const ProfileIcons = ({icon, family}) => {
     }
 }
 
-const ProfileCard = ({data}) => {
+const ProfileCard = ({data, handleLogout}) => {
   const navigation = useNavigation();
+
+//   const handleLogout = (item) => {
+//     if (item.id == 'Logout') {
+//         console.log('logout');
+//     }
+//   }
 
   return (
     <TouchableOpacity 
@@ -38,7 +44,7 @@ const ProfileCard = ({data}) => {
             justifyContent: 'space-between',
             ...SHADOWS.light
         }}
-        onPress={() => console.log(data.id)}
+        onPress={() => data.id != 'Logout' ? navigation.navigate(data.id) : handleLogout(data) }
     >
        <View style={{flex: 1, flexDirection: 'row', alignItems: 'center',}}>
             <ProfileIcons icon={data.icon ?? null} family={data.iconFamily ?? null} />

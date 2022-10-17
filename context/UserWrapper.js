@@ -22,6 +22,11 @@ export const UserProvider = ({children}) => {
         }
     }
 
+    const logout = () => {
+        checkIfConnected();
+        connector.killSession();
+    }
+
 
     useEffect(() => {
       checkIfConnected();
@@ -30,7 +35,7 @@ export const UserProvider = ({children}) => {
     
 
     return (
-        <UserWrapper.Provider value={{currentAccount, setCurrentAccount, checkIfConnected, user}}>
+        <UserWrapper.Provider value={{currentAccount, setCurrentAccount, checkIfConnected, user, logout}}>
             {children}
         </UserWrapper.Provider>
     );

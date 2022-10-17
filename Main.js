@@ -11,8 +11,12 @@ import Splash from './screens/Splash'
 import CryptoAuth from './screens/CryptoAuth'
 
 import App from './screens/App'
-import Home from './screens/Home'
+// import Home from './screens/Home'
 import Details from './screens/Details'
+import Account from './screens/User/Account';
+import Collections from './screens/User/Collections';
+import Verify from './screens/User/Verify';
+import Settings from './screens/User/Settings';
 
 const Stack = createStackNavigator();
 
@@ -51,11 +55,20 @@ const Main = () => {
           {connector.connected ? (
             <>
               <Stack.Screen name="App" component={App}></Stack.Screen>
-              <Stack.Screen name="CryptoAuth" component={CryptoAuth}></Stack.Screen>
               <Stack.Screen name="Details" component={Details}></Stack.Screen>
+
+              <Stack.Screen name="Account" component={Account}></Stack.Screen>
+              <Stack.Screen name="Collections" component={Collections}></Stack.Screen>
+              <Stack.Screen name="Verify" component={Verify}></Stack.Screen>
+              <Stack.Screen name="Settings" component={Settings}></Stack.Screen>
+
+
             </>
           ) : (
-            <Stack.Screen name="Splash" component={Splash}></Stack.Screen>
+            <>
+              <Stack.Screen name="CryptoAuth" component={CryptoAuth}></Stack.Screen>
+              <Stack.Screen name="Splash" component={Splash}></Stack.Screen>
+            </>
           )}
         </Stack.Navigator>
       </UserProvider>

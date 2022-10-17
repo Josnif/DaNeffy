@@ -3,7 +3,7 @@ import { View, Text, Image, StatusBar, ImageBackground } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { COLORS, SHADOWS, SIZES, FONTS, assets } from '../constants'
 import { shortenAddress } from '../utils';
-import {CircleButton} from '../components';
+import { CircleButton } from './Button'
 
 
 const ProfileHeader = ({ user, address }) => {
