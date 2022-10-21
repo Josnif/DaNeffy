@@ -4,7 +4,7 @@ import { Text, View, SafeAreaView, FlatList, StatusBar, Image } from 'react-nati
 import { COLORS, SHADOWS, SIZES, FONTS, assets } from '../constants'
 import { CircleButton, RectButton, FocusedStatusBar, DetailsDesc, DetailsBid, SubInfo } from '../components'
 
-const DetailsHeader = ({data, navigation}) => (
+const DetailsHeader = ({data, type, navigation}) => (
   <View style={{width: '100%', height: 373}}>
     <Image 
       source={data.image}
@@ -17,16 +17,19 @@ const DetailsHeader = ({data, navigation}) => (
       top={StatusBar.currentHeight + 10}
       handlePress={() => navigation.goBack()}
     />
-    <CircleButton 
-      imgUrl={assets.heart}
-      right={15}
-      top={StatusBar.currentHeight + 10}
-    />
+      {type == "my-collection" ?? 
+        <CircleButton 
+          imgUrl={assets.heart}
+          right={15}
+          top={StatusBar.currentHeight + 10}
+        />
+      }
   </View>
 );
 
 const Details = ({ route, navigation }) => {
   const { data } = route.params;
+  const { type } = route.params;
 
   return (
     <SafeAreaView style={{flex: 1}}>
@@ -35,19 +38,20 @@ const Details = ({ route, navigation }) => {
         backgroundColor='transparent' 
         translucent={true}
       />
-      <View style={{
-        position: 'absolute',
-        bottom: 0,
-        width: '100%',
-        alignItems: 'center',
-        justifyContent: 'center',
-        zIndex: 1,
-        paddingVertical: SIZES.font,
-        backgroundColor: 'rgba(255,255,255,0.5)'
-
-      }}>
-        <RectButton minWidth={170} fontSize={SIZES.large} { ...SHADOWS.dark } />
-      </View>
+      {type == "my-collection" ?? 
+        <View style={{
+          position: 'absolute',
+          bottom: 0,
+          width: '100%',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 1,
+          paddingVertical: SIZES.font,
+          backgroundColor: 'rgba(255,255,255,0.5)'
+        }}>
+          <RectButton minWidth={170} fontSize={SIZES.large} { ...SHADOWS.dark } />
+        </View>
+      }
 
       <FlatList 
         data={data.bids}
@@ -57,7 +61,7 @@ const Details = ({ route, navigation }) => {
         contentContainerStyle={{ paddingBottom: SIZES.extraLarge * 3 }}
         ListHeaderComponent={() => (
           <React.Fragment>
-            <DetailsHeader data={data} navigation={navigation} />
+            <DetailsHeader data={data} type={type} navigation={navigation} />
             <SubInfo />
             <View style={{ padding: SIZES.font }}>
               <DetailsDesc data={data} />
