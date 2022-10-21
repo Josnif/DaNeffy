@@ -4,7 +4,7 @@ import React from 'react'
 import { FocusedStatusBar, ProfileTabHeader } from '../../components'
 import { COLORS } from '../../constants';
 
-const Settings = () => {
+const Favorites = () => {
   return (
     <SafeAreaView style={{ flex: 1}}>
       <FocusedStatusBar 
@@ -14,10 +14,10 @@ const Settings = () => {
       />
       <ProfileTabHeader></ProfileTabHeader>
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Settings</Text>
+        <Text>Favorites</Text>
       </View>
     </SafeAreaView>
   )
 }
 
-export default Settings
+export default Favorites

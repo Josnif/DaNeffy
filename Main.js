@@ -17,6 +17,7 @@ import Account from './screens/User/Account';
 import Collections from './screens/User/Collections';
 import Verify from './screens/User/Verify';
 import Settings from './screens/User/Settings';
+import Favorites from './screens/User/Favorites';
 
 const Stack = createStackNavigator();
 
@@ -59,6 +60,7 @@ const Main = () => {
 
               <Stack.Screen name="Manage Profile" component={Account}></Stack.Screen>
               <Stack.Screen name="Collections" component={Collections}></Stack.Screen>
+              <Stack.Screen name="Favorites" component={Favorites}></Stack.Screen>
               <Stack.Screen name="Verify" component={Verify}></Stack.Screen>
               <Stack.Screen name="Settings" component={Settings}></Stack.Screen>
 

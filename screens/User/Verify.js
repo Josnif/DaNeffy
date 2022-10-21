@@ -6,7 +6,7 @@ import { COLORS } from '../../constants';
 
 const Verify = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1}}>
       <FocusedStatusBar 
         barStyle="dark-content"
         backgroundColor={COLORS.primary} 

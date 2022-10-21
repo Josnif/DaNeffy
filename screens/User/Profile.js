@@ -21,6 +21,13 @@ const ProfileItem = [
     iconFamily: 'MaterialIcons'
   },
   {
+    id: 'Favorites',
+    name: 'My Favorites',
+    desc: 'View Favorites',
+    icon: 'favorite',
+    iconFamily: 'MaterialIcons'
+  },
+  {
     id: 'Verify',
     name: 'Identity Verification',
     desc: 'verify your identity to access unlimited features',
