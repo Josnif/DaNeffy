@@ -67,8 +67,9 @@ const AccountStyles = StyleSheet.create({
   formHeading: {
     fontSize: SIZES.large,
     color: COLORS.primary,
-    fontWeight: FONTS.bold,
-    marginVertical: SIZES.base,
+    fontWeight: "500",
+    marginTop: SIZES.large,
+    marginBottom: SIZES.base,
   },
   formContainer: {
     marginTop: SIZES.small,
