@@ -57,7 +57,7 @@ const Main = () => {
               <Stack.Screen name="App" component={App}></Stack.Screen>
               <Stack.Screen name="Details" component={Details}></Stack.Screen>
 
-              <Stack.Screen name="Account" component={Account}></Stack.Screen>
+              <Stack.Screen name="Manage Profile" component={Account}></Stack.Screen>
               <Stack.Screen name="Collections" component={Collections}></Stack.Screen>
               <Stack.Screen name="Verify" component={Verify}></Stack.Screen>
               <Stack.Screen name="Settings" component={Settings}></Stack.Screen>

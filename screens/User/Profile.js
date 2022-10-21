@@ -3,13 +3,12 @@ import React, { useContext, useEffect } from 'react'
 
 import { FocusedStatusBar, ProfileHeader, ProfileCard } from '../../components'
 import UserWrapper from '../../context/UserWrapper'
-import { COLORS } from '../../constants';
 
 import { useWalletConnect } from '@walletconnect/react-native-dapp';
 
 const ProfileItem = [
   {
-    id: 'Account',
+    id: 'Manage Profile',
     name: 'Profile',
     desc: 'Manage Profile',
     icon: 'account-cog',

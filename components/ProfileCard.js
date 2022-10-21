@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image } from 'react-native'
+import { View, Text, TouchableOpacity, Image, Pressable } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 import { FontAwesome, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
@@ -24,14 +24,8 @@ const ProfileIcons = ({icon, family}) => {
 const ProfileCard = ({data, handleLogout}) => {
   const navigation = useNavigation();
 
-//   const handleLogout = (item) => {
-//     if (item.id == 'Logout') {
-//         console.log('logout');
-//     }
-//   }
-
   return (
-    <TouchableOpacity 
+    <Pressable 
         style={{
             backgroundColor: COLORS.white,
             borderRadius: SIZES.font,
@@ -54,7 +48,7 @@ const ProfileCard = ({data, handleLogout}) => {
             </View>
         </View> 
         <MaterialCommunityIcons name="menu-right" size={24} color="black" />
-    </TouchableOpacity>
+    </Pressable>
 
   )
 }

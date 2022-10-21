@@ -194,9 +194,14 @@ const NFTData = [
 const UserData = {
   id: "128875",
   name: "Josnif Pat",
+  about: "I am a professional and well experienced web developer, specialized in variety of web and mobile technologies, building a scalable and fast technical solutions to problems and ready to work with you. Regards.",
   image: assets.person03,
   banner: assets.nft01,
   date: "December 27, 2019 at 1:50 PM",
+  facebook: "https://facebook.com/josnif-pat",
+  linkedIn: "https://linkedIn.com/josnif-pat",
+  github: "https://github.com/josnif",
+  onlineStatus: true,
 }
 
 export { NFTData, UserData };
