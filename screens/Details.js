@@ -17,12 +17,14 @@ const DetailsHeader = ({data, type, navigation}) => (
       top={StatusBar.currentHeight + 10}
       handlePress={() => navigation.goBack()}
     />
-      {type == "my-collection" ?? 
+      {type != "my-collection" ? 
         <CircleButton 
           imgUrl={assets.heart}
           right={15}
           top={StatusBar.currentHeight + 10}
         />
+        : 
+        <></>
       }
   </View>
 );
@@ -38,7 +40,7 @@ const Details = ({ route, navigation }) => {
         backgroundColor='transparent' 
         translucent={true}
       />
-      {type == "my-collection" ?? 
+      {type != "my-collection" ?
         <View style={{
           position: 'absolute',
           bottom: 0,
@@ -51,6 +53,8 @@ const Details = ({ route, navigation }) => {
         }}>
           <RectButton minWidth={170} fontSize={SIZES.large} { ...SHADOWS.dark } />
         </View>
+        :
+        <></>
       }
 
       <FlatList 
