@@ -14,6 +14,20 @@ const ProfileItem = [
     icon: 'account-cog',
   },
   {
+    id: 'Create NFT',
+    name: 'Create NFT',
+    desc: 'Create your NFT design',
+    icon: 'collections-bookmark',
+    iconFamily: 'MaterialIcons'
+  },
+  {
+    id: 'Upload NFT',
+    name: 'Upload NFT',
+    desc: 'Upload your NFT',
+    icon: 'collections-bookmark',
+    iconFamily: 'MaterialIcons'
+  },
+  {
     id: 'Collections',
     name: 'My Collections',
     desc: 'Manage Collections',

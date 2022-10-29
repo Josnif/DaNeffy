@@ -14,6 +14,8 @@ import App from './screens/App'
 // import Home from './screens/Home'
 import Details from './screens/Details'
 import Account from './screens/User/Account';
+import CreateNFT from './screens/NFT/Create';
+import UploadNFT from './screens/NFT/Upload';
 import Collections from './screens/User/Collections';
 import Verify from './screens/User/Verify';
 import Settings from './screens/User/Settings';
@@ -59,6 +61,8 @@ const Main = () => {
               <Stack.Screen name="Details" component={Details}></Stack.Screen>
 
               <Stack.Screen name="Manage Profile" component={Account}></Stack.Screen>
+              <Stack.Screen name="Create NFT" component={CreateNFT}></Stack.Screen>
+              <Stack.Screen name="Upload NFT" component={UploadNFT}></Stack.Screen>
               <Stack.Screen name="Collections" component={Collections}></Stack.Screen>
               <Stack.Screen name="Favorites" component={Favorites}></Stack.Screen>
               <Stack.Screen name="Verify" component={Verify}></Stack.Screen>

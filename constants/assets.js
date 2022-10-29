@@ -8,6 +8,8 @@ import logo from "../assets/images/logo.png";
 import logoWhite from "../assets/logo/DaNeffyWhite.png";
 import logoDark from "../assets/logo/DaNeffyBlack.png";
 
+import ImgPlaceholder from "../assets/images/img_placeholder.png";
+
 import nft01 from "../assets/images/nft01.png";
 import nft02 from "../assets/images/nft02.jpeg";
 import nft03 from "../assets/images/nft03.jpeg";
@@ -34,6 +36,8 @@ export default {
   logo,
   logoWhite,
   logoDark,
+
+  ImgPlaceholder,
 
   nft01,
   nft02,

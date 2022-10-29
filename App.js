@@ -1,8 +1,7 @@
 import 'node-libs-react-native/globals.js';
-
-import "react-native-get-random-values"
+import "react-native-get-random-values";
 // import "react-native-randombytes"
-import "@ethersproject/shims"
+import "@ethersproject/shims";
 import React from 'react';
 import WalletConnectProvider from '@walletconnect/react-native-dapp';
 import AsyncStorage from '@react-native-async-storage/async-storage';

@@ -2,38 +2,9 @@ import { View, Text, SafeAreaView, TextInput, StyleSheet, Switch, ScrollView } f
 import React, { useState, useContext } from 'react'
 
 import UserWrapper from '../../context/UserWrapper'
-import { FocusedStatusBar, ProfileTabHeader } from '../../components'
+import { FocusedStatusBar, ProfileTabHeader, FormInput } from '../../components'
 import { COLORS, SHADOWS, SIZES, FONTS} from '../../constants';
 
-const FormInput = ({ label, placeholder, type='text', value, handleChange, height, ...props }) => {
-  return (
-    <View style={AccountStyles.inputContainer}>
-      <Text style={AccountStyles.inputContainer.inputLabel}>{label}</Text>
-      {
-        type === 'toggle' ?
-        (
-          <Switch
-            trackColor={{ false: "#767577", true: '#E14942' }}
-            thumbColor={value ? "#ffffff" : "#f4f3f4"}
-            ios_backgroundColor="#3e3e3e"
-            onValueChange={handleChange}
-            value={value}
-            style={{right: '88%'}}
-          />
-        ) : 
-        (
-          <TextInput 
-            style={AccountStyles.inputContainer.inputControl}
-            placeholder={placeholder ?? label} 
-            height={height ?? 60}
-            value={value}
-            {...props}
-          />
-        )
-      }
-    </View>
-  );
-}
 
 const Account = () => {
   const { user } = useContext(UserWrapper);
@@ -75,28 +46,6 @@ const AccountStyles = StyleSheet.create({
     marginTop: SIZES.small,
     marginBottom: SIZES.extraLarge * 3,
     paddingHorizontal: SIZES.large
-  },
-  inputContainer: {
-    width: '100%',
-    flexDirection: 'column',
-    // paddingHorizontal: SIZES.font,
-    paddingVertical: SIZES.small - 2,
-    // marginBottom: SIZES.base - 10,
-
-    inputLabel: {
-      fontSize: SIZES.medium,
-      color: COLORS.primary,
-      fontWeight: FONTS.regular,
-      marginBottom: SIZES.base
-    },
-    inputControl: {
-      // height: 60,
-      fontSize: SIZES.medium,
-      paddingHorizontal: SIZES.font,
-      borderRadius: SIZES.font,
-      backgroundColor: COLORS.white,
-      // ...SHADOWS.light
-    }
   },
 });
 
